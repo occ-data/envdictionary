@@ -26,8 +26,8 @@ def load_yaml_schema(path):
         return yaml.load(f)
 CUR_DIR = os.path.dirname(os.path.realpath(__file__))
 DATA_DIR = os.path.join(CUR_DIR, 'examples')
-project1 = load_yaml_schema(os.path.join(CUR_DIR, 'schemas/projects/project1.yaml'))
-projects = {'project1': project1}
+#project1 = load_yaml_schema(os.path.join(CUR_DIR, 'schemas/projects/project1.yaml'))
+projects = {}
 
 def merge_schemas(a, b, path=None):
     """Recursively zip schemas together
