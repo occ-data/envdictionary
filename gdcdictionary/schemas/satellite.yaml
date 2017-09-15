@@ -35,7 +35,7 @@ links:
     label: member_of
     target_type: project
     multiplicity: many_to_one
-  required: true
+    required: true
 
 constraints: null
 

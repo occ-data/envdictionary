@@ -74,3 +74,7 @@ properties:
     $ref: "_definitions.yaml#/datetime"
   wavelength:
     type: number
+  geo_orbits:
+    $ref: "_definitions.yaml#/to_one"
+  leo_orbits:
+    $ref: "_definitions.yaml#/to_one"

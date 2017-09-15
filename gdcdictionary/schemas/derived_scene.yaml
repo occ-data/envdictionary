@@ -66,3 +66,5 @@ properties:
     $ref: "_definitions.yaml#/datetime"
   wavelength:
     type: number
+  scenes:
+    $ref: "_definitions.yaml#/to_one"
