@@ -1,0 +1,66 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "leo_orbit"
+title: leo_orbit
+type: object
+program: '*'
+project: '*'
+category: administrative
+description: >
+  leo_orbit
+additionalProperties: false
+submittable: true 
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+
+required:
+  - satellites
+  - submitter_id
+  - inclination
+  - apogee_height
+  - perigee_height
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+links:
+  - name: satellites
+    backref: leo_orbits
+    label: member_of
+    target_type: satellite
+    multiplicity: many_to_one
+  required: true
+
+constraints: null
+
+properties:
+  type:
+    enum: ["leo_orbit"]
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+    description: "UUID for the project." # TOREVIEW
+  submitter_id:
+    type:
+      - string
+      - "null"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  apogee_height:
+    type: number
+  perigee_height:
+    type: number
+  inclination:
+    type: number
+  satellites:
+    $ref: "_definitions.yaml#/to_one"

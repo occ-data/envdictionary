@@ -1,0 +1,62 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "satellite"
+title: satellite
+type: object
+program: '*'
+project: '*'
+category: administrative
+description: >
+  satellite
+additionalProperties: false
+submittable: true 
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+
+required:
+  - projects
+  - submitter_id
+  - name
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+links:
+  - name: projects
+    backref: satellites
+    label: member_of
+    target_type: project
+    multiplicity: many_to_one
+  required: true
+
+constraints: null
+
+properties:
+  type:
+    enum: ['satellite']
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+    description: "UUID for the project." # TOREVIEW
+  submitter_id:
+    type:
+      - string
+      - "null"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  name:
+    type: string
+  description:
+    type: string
+  projects:
+    $ref: "_definitions.yaml#/to_one"

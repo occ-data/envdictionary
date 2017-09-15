@@ -1,0 +1,68 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "derived_scene"
+title: derived_scene
+type: object
+namespace: http://gdc.nci.nih.gov
+category: data_file
+program: '*'
+project: '*'
+description: >
+  TODO
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+  - file_state
+  - error_type
+
+links:
+  - name: scenes
+    backref: derived_scenes
+    label: derived_from
+    target_type: scene
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - file_name
+  - file_size
+  - md5sum
+  - data_format
+  - scenes
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  $ref: "_definitions.yaml#/data_file_properties"
+  type:
+    enum: [ "derived_scene" ]
+  data_format:
+    term:
+      $ref: "_terms.yaml#/data_format"
+    enum:
+      - TIF
+      - GRIB2
+      - NETCDF
+      - ASCII
+  bounding_box_top:
+    type: number
+  bounding_box_bottom:
+    type: number
+  bounding_box_left:
+    type: number
+  bounding_box_right:
+    type: number
+  datetime:
+    $ref: "_definitions.yaml#/datetime"
+  wavelength:
+    type: number
