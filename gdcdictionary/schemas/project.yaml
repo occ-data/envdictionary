@@ -41,7 +41,7 @@ constraints: null
 
 properties:
   type:
-    type: string
+    enum: ["project"]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
