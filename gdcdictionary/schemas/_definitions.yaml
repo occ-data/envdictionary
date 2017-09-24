@@ -218,3 +218,39 @@ workflow_properties:
     $ref: "#/datetime"
   updated_datetime:
     $ref: "#/datetime"
+
+spatial_temporal_box_properties:
+  bounding_box_top:
+    type: number
+    description: "The largest latitude in decimal degrees."
+  bounding_box_bottom:
+    type: number
+    description: "The smallest latitude in decimal degrees."
+  bounding_box_left:
+    type: number
+    description: "The left most longitude in decimal degrees."
+  bounding_box_right:
+    type: number
+    description: "The right most longitude in decimal degrees."
+  datetime:
+    $ref: "#/datetime"
+
+ubiquitous_properties:
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+    description: "UUID for the node."
+  submitter_id:
+    type:
+      - string
+    description: >
+      A project-specific identifier for a node. This property is the calling card/nickname/alias for
+      a unit of submission. It can be used in place of the UUID for identifying or recalling a node.
+  state:
+    $ref: "#/state"
+  project_id:
+    $ref: "#/project_id"
+  created_datetime:
+    $ref: "#/datetime"
+  updated_datetime:
+    $ref: "#/datetime"

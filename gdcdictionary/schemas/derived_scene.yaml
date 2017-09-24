@@ -44,6 +44,7 @@ uniqueKeys:
 
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
+  $ref: "_definitions.yaml#/spatial_temporal_box_properties"
   type:
     enum: [ "derived_scene" ]
   data_format:
@@ -54,16 +55,6 @@ properties:
       - GRIB2
       - NETCDF
       - ASCII
-  bounding_box_top:
-    type: number
-  bounding_box_bottom:
-    type: number
-  bounding_box_left:
-    type: number
-  bounding_box_right:
-    type: number
-  datetime:
-    $ref: "_definitions.yaml#/datetime"
   wavelength:
     type: number
   scenes:

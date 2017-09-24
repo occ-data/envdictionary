@@ -40,20 +40,9 @@ links:
 constraints: null
 
 properties:
+  $ref: "_definitions.yaml#/ubiquitous_properties"
   type:
     enum: ['satellite']
-  id:
-    $ref: "_definitions.yaml#/UUID"
-    systemAlias: node_id
-    description: "UUID for the project." # TOREVIEW
-  submitter_id:
-    type:
-      - string
-      - "null"
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
-  updated_datetime:
-    $ref: "_definitions.yaml#/datetime"
   name:
     type: string
   description:

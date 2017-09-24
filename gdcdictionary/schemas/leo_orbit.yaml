@@ -42,20 +42,9 @@ links:
 constraints: null
 
 properties:
+  $ref: "_definitions.yaml#/ubiquitous_properties"
   type:
     enum: ["leo_orbit"]
-  id:
-    $ref: "_definitions.yaml#/UUID"
-    systemAlias: node_id
-    description: "UUID for the project." # TOREVIEW
-  submitter_id:
-    type:
-      - string
-      - "null"
-  created_datetime:
-    $ref: "_definitions.yaml#/datetime"
-  updated_datetime:
-    $ref: "_definitions.yaml#/datetime"
   apogee_height:
     type: number
   perigee_height:
