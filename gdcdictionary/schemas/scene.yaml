@@ -52,7 +52,20 @@ uniqueKeys:
 
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
-  $ref: "_definitions.yaml#/spatial_temporal_box_properties"
+  bounding_box_top:
+    type: number
+    description: "The largest latitude in decimal degrees."
+  bounding_box_bottom:
+    type: number
+    description: "The smallest latitude in decimal degrees."
+  bounding_box_left:
+    type: number
+    description: "The left most longitude in decimal degrees."
+  bounding_box_right:
+    type: number
+    description: "The right most longitude in decimal degrees."
+  datetime:
+    $ref: "_definitions.yaml#/datetime"
   type:
     enum: [ "scene" ]
   data_format:
