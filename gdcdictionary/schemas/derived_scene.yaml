@@ -4,7 +4,7 @@ id: "derived_scene"
 title: derived_scene
 type: object
 namespace: http://gdc.nci.nih.gov
-category: data_file
+category: satellite
 program: '*'
 project: '*'
 description: >
@@ -18,57 +18,29 @@ systemProperties:
   - project_id
   - created_datetime
   - updated_datetime
-  - state
-  - file_state
-  - error_type
 
 links:
-  - name: scenes
+  - name: instruments
     backref: derived_scenes
     label: derived_from
-    target_type: scene
+    target_type: instrument
     multiplicity: many_to_one
     required: true
 
 required:
   - submitter_id
-  - file_name
-  - file_size
-  - md5sum
-  - data_format
-  - scenes
+  - instruments
 
 uniqueKeys:
   - [ id ]
   - [ project_id, submitter_id ]
 
 properties:
-  $ref: "_definitions.yaml#/data_file_properties"
-  bounding_box_top:
-    type: number
-    description: "The largest latitude in decimal degrees."
-  bounding_box_bottom:
-    type: number
-    description: "The smallest latitude in decimal degrees."
-  bounding_box_left:
-    type: number
-    description: "The left most longitude in decimal degrees."
-  bounding_box_right:
-    type: number
-    description: "The right most longitude in decimal degrees."
-  datetime:
-    $ref: "_definitions.yaml#/datetime"
+  $ref: "_definitions.yaml#/ubiquitous_properties"
   type:
     enum: [ "derived_scene" ]
-  data_format:
-    term:
-      $ref: "_terms.yaml#/data_format"
-    enum:
-      - TIF
-      - GRIB2
-      - NETCDF
-      - ASCII
-  wavelength:
-    type: number
-  scenes:
-    $ref: "_definitions.yaml#/to_one"
+  desciption:
+    description: A description of the derived scene.
+    type: string
+  instruments:
+    $ref: "_definitions.yaml#/to_many"

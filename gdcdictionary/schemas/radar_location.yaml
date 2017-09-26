@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "satellite"
-title: satellite
+id: "radar_location"
+title: radar_location
 type: object
 program: '*'
 project: '*'
-category: satellite
+category: radar
 description: >
-  Describes a named satellite.
+  A latitude, longitude, and elevation for where the radar was located when it was operating.
 additionalProperties: false
 submittable: true 
 validators: null
@@ -21,31 +21,35 @@ systemProperties:
 
 
 required:
-  - projects
+  - radars
   - submitter_id
-  - name
+  - longitude
+  - latitude
+  - elevation
 
 uniqueKeys:
   - [ id ]
   - [ project_id, submitter_id ]
 
 links:
-  - name: projects
-    backref: satellites
+  - name: radars
+    backref: radar_locations
     label: member_of
-    target_type: project
+    target_type: radar
     multiplicity: many_to_one
     required: true
 
 constraints: null
 
 properties:
-  $ref: "_definitions.yaml#/ubiquitous_properties"
+  $ref: "_definitions.yaml#/ubiquitous_properties" 
   type:
-    enum: ['satellite']
-  name:
-    type: string
-  description:
-    type: string
-  projects:
+    enum: ["radar_location"]
+  longitude:
+    type: number
+  latitude:
+    type: number
+  elevation:
+    type: number
+  radars:
     $ref: "_definitions.yaml#/to_one"

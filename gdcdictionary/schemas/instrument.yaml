@@ -1,0 +1,59 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "instrument"
+title: Instrument
+type: object
+namespace: http://gdc.nci.nih.gov
+category: satellite
+program: '*'
+project: '*'
+description: >
+  TODO
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+
+links:
+  - exclusive: true
+    required: true
+    subgroup:
+      - name: geo_orbits
+        backref: scenes
+        label: data_from
+        multiplicity: many_to_one
+        target_type: geo_orbit
+        required: false
+      - name: leo_orbits
+        backref: scenes
+        label: data_from
+        multiplicity: many_to_one
+        target_type: leo_orbit
+        required: false
+
+required:
+  - submitter_id
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+  type:
+    enum: [ "instrument" ]
+  instrument_name:
+    enum: [ "ABI", "MODIS", "VIIRS", "MSI" ] 
+    description: The name of the instrument on the satellite which is recording data.
+  central_wavelength:
+    description: The central wavelength the instrument receives data at in micrometers.
+    type: number
+  geo_orbits:
+    $ref: "_definitions.yaml#/to_many"
+  leo_orbits:
+    $ref: "_definitions.yaml#/to_many"

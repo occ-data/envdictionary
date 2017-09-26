@@ -5,7 +5,7 @@ title: leo_orbit
 type: object
 program: '*'
 project: '*'
-category: administrative
+category: satellite
 description: >
   leo_orbit
 additionalProperties: false

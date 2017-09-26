@@ -1,0 +1,48 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "volume_scan"
+title: Volume_Scan
+type: object
+namespace: http://gdc.nci.nih.gov
+category: radar
+program: '*'
+project: '*'
+description: >
+  A single volume scan collected by the radar system.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: radar_locations
+    backref: volume_scans
+    label: member_of
+    target_type: radar_location
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+  type:
+    enum: [ "radar_location" ]
+  prf:
+    description: The pulse repetition frequency of the radar when collecting this volume scan.
+    type: number
+  vcp:
+    description: The volume coverage pattern when the radar collected this dataset.
+    type: number
+  radar_locations:
+    $ref: "_definitions.yaml#/to_one"

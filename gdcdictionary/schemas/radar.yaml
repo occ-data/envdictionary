@@ -1,13 +1,13 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "satellite"
-title: satellite
+id: "radar"
+title: radar
 type: object
 program: '*'
 project: '*'
-category: satellite
+category: radar
 description: >
-  Describes a named satellite.
+  Describes a named radar.
 additionalProperties: false
 submittable: true 
 validators: null
@@ -31,7 +31,7 @@ uniqueKeys:
 
 links:
   - name: projects
-    backref: satellites
+    backref: radars
     label: member_of
     target_type: project
     multiplicity: many_to_one
@@ -42,9 +42,12 @@ constraints: null
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
   type:
-    enum: ['satellite']
+    enum: ['radar']
   name:
     type: string
+  radar_id:
+    type: string
+    description: The identifier of the radar system.
   description:
     type: string
   projects:

@@ -5,7 +5,7 @@ title: geo_orbit
 type: object
 program: '*'
 project: '*'
-category: administrative
+category: satellite
 description: >
   geo_orbit
 additionalProperties: false
