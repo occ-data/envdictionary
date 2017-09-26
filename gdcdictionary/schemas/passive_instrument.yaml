@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "instrument"
-title: Instrument
+id: "passive_instrument"
+title: Passive_instrument
 type: object
 namespace: http://gdc.nci.nih.gov
 category: satellite
 program: '*'
 project: '*'
 description: >
-  TODO
+  A passive instrument aboad a satellite receiving at a specific wavelength.
 additionalProperties: false
 submittable: true
 validators: null
@@ -46,13 +46,19 @@ uniqueKeys:
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
   type:
-    enum: [ "instrument" ]
+    enum: [ "passive_instrument" ]
   instrument_name:
     enum: [ "ABI", "MODIS", "VIIRS", "MSI" ] 
     description: The name of the instrument on the satellite which is recording data.
   central_wavelength:
     description: The central wavelength the instrument receives data at in micrometers.
     type: number
+  band_name:
+    type: string
+    description: The nickname used for the instrument band.
+  resolution:
+    type: number
+    description: The spatial resolution of the band in meters.
   geo_orbits:
     $ref: "_definitions.yaml#/to_many"
   leo_orbits:

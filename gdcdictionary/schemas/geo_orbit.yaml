@@ -7,7 +7,7 @@ program: '*'
 project: '*'
 category: satellite
 description: >
-  geo_orbit
+  A geosynchronous satellite orbit. 
 additionalProperties: false
 submittable: true 
 validators: null
@@ -24,7 +24,7 @@ required:
   - satellites
   - submitter_id
   - longitude
-  - height
+  - altitude
 
 uniqueKeys:
   - [ id ]
@@ -46,7 +46,7 @@ properties:
     enum: ["geo_orbit"]
   longitude:
     type: number
-  height:
+  altitude:
     type: number
   satellites:
     $ref: "_definitions.yaml#/to_one"

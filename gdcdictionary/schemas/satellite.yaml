@@ -7,7 +7,7 @@ program: '*'
 project: '*'
 category: satellite
 description: >
-  Describes a named satellite.
+  Describes a satellite which contains scientific instruments.
 additionalProperties: false
 submittable: true 
 validators: null

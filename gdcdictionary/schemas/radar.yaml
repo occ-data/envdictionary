@@ -7,7 +7,7 @@ program: '*'
 project: '*'
 category: radar
 description: >
-  Describes a named radar.
+  Describes a radar at a fixed site on the ground, mobile on a truck, or moveable.
 additionalProperties: false
 submittable: true 
 validators: null
@@ -48,6 +48,8 @@ properties:
   radar_id:
     type: string
     description: The identifier of the radar system.
+  band:
+    enum: ['S', 'X', 'C', 'L', 'Ka', 'Ku', 'W']
   description:
     type: string
   projects:

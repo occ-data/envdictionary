@@ -8,7 +8,7 @@ category: satellite
 program: '*'
 project: '*'
 description: >
-  TODO
+  Describes a scene derived from potentially multiple satellite instruments.
 additionalProperties: false
 submittable: true
 validators: null
@@ -20,10 +20,10 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: instruments
+  - name: passive_instruments
     backref: derived_scenes
     label: derived_from
-    target_type: instrument
+    target_type: passive_instrument
     multiplicity: many_to_one
     required: true
 
@@ -42,5 +42,5 @@ properties:
   desciption:
     description: A description of the derived scene.
     type: string
-  instruments:
+  passive_instruments:
     $ref: "_definitions.yaml#/to_many"

@@ -26,11 +26,11 @@ links:
   - exclusive: false
     required: true
     subgroup:
-      - name: instruments
+      - name: passive_instruments
         backref: spatiotemporal_files
         label: data_from
         multiplicity: many_to_one
-        target_type: instrument
+        target_type: passive_instrument
         required: false
       - name: derived_scenes
         backref: spatiotemporal_files
@@ -83,7 +83,7 @@ properties:
       - NETCDF
       - ASCII
       - NEXRAD2
-  instruments:
+  passive_instruments:
     $ref: "_definitions.yaml#/to_many"
   derived_scenes:
     $ref: "_definitions.yaml#/to_many"

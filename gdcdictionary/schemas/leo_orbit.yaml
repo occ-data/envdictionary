@@ -7,7 +7,7 @@ program: '*'
 project: '*'
 category: satellite
 description: >
-  leo_orbit
+  A low Earth orbit.
 additionalProperties: false
 submittable: true 
 validators: null
@@ -24,8 +24,8 @@ required:
   - satellites
   - submitter_id
   - inclination
-  - apogee_height
-  - perigee_height
+  - apogee_altitude
+  - perigee_altitude
 
 uniqueKeys:
   - [ id ]
@@ -45,11 +45,14 @@ properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
   type:
     enum: ["leo_orbit"]
-  apogee_height:
+  apogee_altitude:
     type: number
-  perigee_height:
+    description: The height of the apogee of the orbit in meters.
+  perigee_altitude:
     type: number
+    description: The height of the perigee of the orbit in meters.
   inclination:
     type: number
+    description: The orbital inclination in degrees.
   satellites:
     $ref: "_definitions.yaml#/to_one"
