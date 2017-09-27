@@ -96,6 +96,14 @@ properties:
       - NEXRAD2
       - PNG
       - JPG
+  data_category:
+    term:
+      $ref: "_terms.yaml#/data_category"
+    enum:
+      - Radar
+      - Satellite
+      - Time Series
+      - Photograph
   passive_instruments:
     $ref: "_definitions.yaml#/to_many"
   derived_scenes:
