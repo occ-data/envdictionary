@@ -47,9 +47,15 @@ properties:
     enum: ["radar_location"]
   longitude:
     type: number
+    description: "The longitude of the radar in decimal degrees."
   latitude:
     type: number
+    description: "The latitude of the radar in decimal degrees."
   elevation:
     type: number
+    description: "The elevation of the site of the radar in meters."
+  tower_height:
+    type: number
+    description: "The height of the radar above ground level in meters."
   radars:
     $ref: "_definitions.yaml#/to_one"
