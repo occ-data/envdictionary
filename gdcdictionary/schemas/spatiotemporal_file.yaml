@@ -70,6 +70,9 @@ properties:
   bounding_box_east:
     type: number
     description: "The eastern most longitude in decimal degrees."
+  organization:
+    type: string
+    description: "The organization which created this file."
   datetime:
     $ref: "_definitions.yaml#/datetime"
   type:
