@@ -37,7 +37,7 @@ uniqueKeys:
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
   type:
-    enum: [ "radar_location" ]
+    enum: [ "volume_scan" ]
   prf:
     description: The pulse repetition frequency of the radar when collecting this volume scan.
     type: number
