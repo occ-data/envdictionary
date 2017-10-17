@@ -1,0 +1,67 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "weather_station"
+title: weather_station
+type: object
+program: '*'
+project: '*'
+category: weather_station
+description: >
+  Describes a weather station at a fixed site. Weather stations typically measure temperature, humidity, and precipitation.
+additionalProperties: false
+submittable: true 
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+
+required:
+  - projects
+  - submitter_id
+  - name
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+links:
+  - name: projects
+    backref: weather_stations
+    label: member_of
+    target_type: project
+    multiplicity: many_to_one
+    required: true
+
+constraints: null
+
+properties:
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+  type:
+    enum: ['weather_station']
+  place:
+    type: string
+  icao_id:
+    type: string
+    description: The identifier of the weather station.
+  description:
+    type: string
+  state:
+    type: string
+  country:
+    type: string
+  longitude:
+    type: number
+    description: "The longitude of the weather station in decimal degrees."
+  latitude:
+    type: number
+    description: "The latitude of the weather station in decimal degrees."
+  elevation:
+    type: number
+    description: "The elevation of the weather station in meters."
+  projects:
+    $ref: "_definitions.yaml#/to_one"

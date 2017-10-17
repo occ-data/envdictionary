@@ -1,0 +1,81 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "stream_gauge"
+title: stream_gauge
+type: object
+program: '*'
+project: '*'
+category: stream_gauge
+description: >
+  Describes a stream gauge at a fixed site measuring height or discharge.
+additionalProperties: false
+submittable: true 
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+
+required:
+  - projects
+  - submitter_id
+  - name
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+links:
+  - name: projects
+    backref: stream_gauges
+    label: member_of
+    target_type: project
+    multiplicity: many_to_one
+    required: true
+
+constraints: null
+
+properties:
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+  type:
+    enum: ['stream_gauge']
+  name:
+    type: string
+  usgs_id:
+    type: string
+    description: "The identifier assigned by the USGS, if available."
+  nws_id:
+    type: string
+    description: "The identifier assigned by the US NWS, if available."
+  state_id:
+    type: string
+    description: "The identifier assigned by the State or local authority, if available."
+  longitude:
+    type: number
+    description: "The longitude of the stream gauge in decimal degrees."
+  latitude:
+    type: number
+    description: "The latitude of the stream gauge in decimal degrees."
+  drainage_area:
+    type: number
+    description: "The contributing drainage area of this stream gauge in square km."
+  action_flow:
+    type: number
+    description: "The flow rate associated with the NWS action stage in cms."
+  minor_flow:
+    type: number
+    description: "The flow rate associated with the NWS minor flood stage in cms."
+  moderate_flow:
+    type: number
+    description: "The flow rate associated with the NWS moderate flood stage in cms."
+  major_flow:
+    type: number
+    description: "The flow rate associated with the NWS major flood stage in cms."
+  description:
+    type: string
+  projects:
+    $ref: "_definitions.yaml#/to_one"
