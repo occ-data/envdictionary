@@ -41,6 +41,8 @@ constraints: null
 
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
+  name:
+    type: string
   type:
     enum: ['weather_station']
   place:

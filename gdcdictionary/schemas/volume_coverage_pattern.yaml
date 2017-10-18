@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "volume_scan"
-title: Volume_Scan
+id: "volume_coverage_pattern"
+title: Volume_Coverage_Pattern
 type: object
 namespace: http://gdc.nci.nih.gov
 category: radar
 program: '*'
 project: '*'
 description: >
-  A single volume scan collected by the radar system.
+  The volume coverage pattern when data was collected by the radar system.
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,7 +21,7 @@ systemProperties:
 
 links:
   - name: radar_locations
-    backref: volume_scans
+    backref: volume_coverage_patterns
     label: member_of
     target_type: radar_location
     multiplicity: many_to_one
@@ -36,12 +36,11 @@ uniqueKeys:
 
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
+  name:
+    type: string
   type:
-    enum: [ "volume_scan" ]
-  prf:
-    description: The pulse repetition frequency of the radar when collecting this volume scan.
-    type: number
-  vcp:
+    enum: [ "volume_coverage_pattern" ]
+  vcp_number:
     description: The volume coverage pattern when the radar collected this dataset.
     type: number
   radar_locations:
