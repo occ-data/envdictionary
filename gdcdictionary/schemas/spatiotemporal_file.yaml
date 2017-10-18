@@ -38,11 +38,11 @@ links:
         multiplicity: many_to_one
         target_type: derived_scene
         required: false
-      - name: volume_scans
+      - name: volume_coverage_patterns
         backref: spatiotemporal_files
         label: data_from
         multiplicity: many_to_one
-        target_type: volume_scan
+        target_type: volume_coverage_pattern
         required: false
 
 required:
@@ -111,5 +111,5 @@ properties:
     $ref: "_definitions.yaml#/to_many"
   derived_scenes:
     $ref: "_definitions.yaml#/to_many"
-  volume_scans:
+  volume_coverage_patterns:
     $ref: "_definitions.yaml#/to_many"
