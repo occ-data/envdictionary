@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "volume_coverage_pattern"
-title: Volume_Coverage_Pattern
+title: volume_coverage_pattern
 type: object
 namespace: http://gdc.nci.nih.gov
 category: radar
@@ -20,10 +20,10 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: radar_locations
+  - name: radars
     backref: volume_coverage_patterns
     label: member_of
-    target_type: radar_location
+    target_type: radar
     multiplicity: many_to_one
     required: true
 
@@ -43,5 +43,5 @@ properties:
   vcp_number:
     description: The volume coverage pattern when the radar collected this dataset.
     type: number
-  radar_locations:
+  radars:
     $ref: "_definitions.yaml#/to_one"

@@ -32,6 +32,18 @@ links:
         multiplicity: many_to_one
         target_type: passive_instrument
         required: false
+      - name: geo_orbits
+        backref: spatiotemporal_files
+        label: data_from
+        multiplicity: many_to_one
+        target_type: geo_orbit
+        required: false
+      - name: leo_orbits
+        backref: spatiotemporal_files
+        label: data_from
+        multiplicity: many_to_one
+        target_type: leo_orbit
+        required: false
       - name: derived_scenes
         backref: spatiotemporal_files
         label: data_from
@@ -43,6 +55,12 @@ links:
         label: data_from
         multiplicity: many_to_one
         target_type: volume_coverage_pattern
+        required: false
+      - name: radar_locations
+        backref: spatiotemporal_files
+        label: data_from
+        multiplicity: many_to_one
+        target_type: radar_location
         required: false
 
 required:
@@ -112,4 +130,10 @@ properties:
   derived_scenes:
     $ref: "_definitions.yaml#/to_many"
   volume_coverage_patterns:
+    $ref: "_definitions.yaml#/to_many"
+  geo_orbits:
+    $ref: "_definitions.yaml#/to_many"
+  leo_orbits:
+    $ref: "_definitions.yaml#/to_many"
+  radar_locations:
     $ref: "_definitions.yaml#/to_many"
