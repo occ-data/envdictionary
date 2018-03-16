@@ -106,6 +106,11 @@ properties:
       - Radar
       - Time Series
       - Photograph
+      - Raw DEM
+      - Cleaned DEM
+      - Points of Interest
+      - Areas of Interest
+      - Lines of Interest
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
@@ -117,6 +122,7 @@ properties:
       - NEXRAD2
       - PNG
       - JPG
+      - SHP
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
@@ -125,6 +131,8 @@ properties:
       - Satellite
       - Time Series
       - Photograph
+      - Digital Elevation Model
+      - Items of Interest
   passive_instruments:
     $ref: "_definitions.yaml#/to_many"
   derived_scenes:
