@@ -1,0 +1,80 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "publication_file"
+title: publication_file
+type: object
+namespace: http://gdc.nci.nih.gov
+category: data_file
+program: '*'
+project: '*'
+description: >
+  A file representing a publication.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+  - file_state
+  - error_type
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+      - name: publications
+        backref: publication_files
+        label: data_from
+        multiplicity: many_to_one
+        target_type: publication
+        required: true
+
+required:
+  - submitter_id
+  - file_name
+  - file_size
+  - md5sum
+  - data_format
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  $ref: "_definitions.yaml#/data_file_properties"
+  type:
+    enum: [ "publication_file" ]
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    type: string
+    enum:
+      - Journal Article
+      - White Paper
+      - Bulletin
+      - Map
+      - Fact Sheet
+  data_format:
+    term:
+      $ref: "_terms.yaml#/data_format"
+    enum:
+      - PDF
+      - WORD
+      - TXT
+      - PS
+      - PNG
+      - JPG
+  data_category:
+    term:
+      $ref: "_terms.yaml#/data_category"
+    enum:
+      - Land Surface
+      - Instrument
+      - Risk
+      - Project Results
+  publications:
+    $ref: "_definitions.yaml#/to_many"

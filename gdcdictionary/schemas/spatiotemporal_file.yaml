@@ -62,6 +62,18 @@ links:
         multiplicity: many_to_one
         target_type: radar_location
         required: false
+      - name: stream_gauges
+        backref: spatiotemporal_files
+        label: data_from
+        multiplicity: many_to_one
+        target_type: stream_gauge
+        required: false
+      - name: projects
+        backref: spatiotemporal_files
+        label: member_of
+        target_type: project
+        multiplicity: many_to_one
+        required: true
 
 required:
   - submitter_id
@@ -106,6 +118,11 @@ properties:
       - Radar
       - Time Series
       - Photograph
+      - Raw DEM
+      - Cleaned DEM
+      - Points of Interest
+      - Areas of Interest
+      - Lines of Interest
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
@@ -117,14 +134,15 @@ properties:
       - NEXRAD2
       - PNG
       - JPG
+      - SHP
+      - CSV
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
     enum:
-      - Radar
-      - Satellite
-      - Time Series
-      - Photograph
+      - Forecast
+      - Analysis
+      - Observation
   passive_instruments:
     $ref: "_definitions.yaml#/to_many"
   derived_scenes:
@@ -137,3 +155,7 @@ properties:
     $ref: "_definitions.yaml#/to_many"
   radar_locations:
     $ref: "_definitions.yaml#/to_many"
+  stream_gauges:
+    $ref: "_definitions.yaml#/to_many"
+  projects:
+    $ref: "_definitions.yaml#/to_one"

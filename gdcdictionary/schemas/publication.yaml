@@ -51,6 +51,10 @@ properties:
     type: string
   doi:
     type: string
+  organization:
+    type: string
+  author:
+    type: string
   projects:
     $ref: "_definitions.yaml#/to_many"
   project_id:
