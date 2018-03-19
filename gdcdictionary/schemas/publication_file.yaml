@@ -57,6 +57,7 @@ properties:
       - White Paper
       - Bulletin
       - Map
+      - Fact Sheet
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
@@ -71,9 +72,9 @@ properties:
     term:
       $ref: "_terms.yaml#/data_category"
     enum:
-      - Journal Article
-      - White Paper
-      - Bulletin
-      - Map
+      - Land Surface
+      - Instrument
+      - Risk
+      - Project Results
   publications:
     $ref: "_definitions.yaml#/to_many"
