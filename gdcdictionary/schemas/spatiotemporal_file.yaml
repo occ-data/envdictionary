@@ -24,7 +24,7 @@ systemProperties:
 
 links:
   - exclusive: false
-    required: false
+    required: true
     subgroup:
       - name: passive_instruments
         backref: spatiotemporal_files
@@ -74,12 +74,12 @@ links:
         target_type: project
         multiplicity: many_to_one
         required: false
-  - name: core_metadata_collections
-    backref: spatiotemporal_files
-    label: data_from
-    target_type: core_metadata_collection
-    multiplicity: many_to_many
-    required: false
+      - name: core_metadata_collections
+        backref: spatiotemporal_files
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_many
+        required: false
 
 required:
   - submitter_id
