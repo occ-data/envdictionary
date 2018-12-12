@@ -24,7 +24,7 @@ systemProperties:
 
 links:
   - exclusive: false
-    required: true
+    required: false
     subgroup:
       - name: passive_instruments
         backref: spatiotemporal_files

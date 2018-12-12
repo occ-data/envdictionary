@@ -28,7 +28,7 @@ links:
     label: data_from
     multiplicity: many_to_one
     target_type: publication
-    required: true
+    required: false
   - name: core_metadata_collections
     backref: publication_files
     label: data_from
