@@ -29,7 +29,6 @@ links:
 
 required:
   - submitter_id
-  - instruments
 
 uniqueKeys:
   - [ id ]
