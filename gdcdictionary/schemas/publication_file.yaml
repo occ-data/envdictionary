@@ -23,18 +23,21 @@ systemProperties:
   - error_type
 
 links:
-  - name: publications
-    backref: publication_files
-    label: data_from
-    multiplicity: many_to_one
-    target_type: publication
+  - exclusive: false
     required: true
-  - name: core_metadata_collections
-    backref: publication_files
-    label: data_from
-    target_type: core_metadata_collection
-    multiplicity: many_to_many
-    required: false
+    subgroup:
+      - name: publications
+        backref: publication_files
+        label: data_from
+        multiplicity: many_to_one
+        target_type: publication
+        required: false
+      - name: core_metadata_collections
+        backref: publication_files
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_many
+        required: false
 
 required:
   - submitter_id
