@@ -24,6 +24,7 @@ required:
   - projects
   - submitter_id
   - name
+  - type
 
 uniqueKeys:
   - [ id ]
@@ -78,4 +79,4 @@ properties:
   description:
     type: string
   projects:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_one_project"

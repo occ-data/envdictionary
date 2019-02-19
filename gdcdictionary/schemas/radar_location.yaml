@@ -21,6 +21,7 @@ systemProperties:
 
 
 required:
+  - type
   - radars
   - submitter_id
   - longitude

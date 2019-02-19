@@ -21,6 +21,7 @@ systemProperties:
 
 
 required:
+  - type
   - projects
   - submitter_id
   - name
@@ -66,4 +67,4 @@ properties:
     type: number
     description: "The elevation of the weather station in meters."
   projects:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_one_project"

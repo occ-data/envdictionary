@@ -21,6 +21,7 @@ systemProperties:
 
 
 required:
+  - type
   - projects
   - submitter_id
   - name
@@ -53,4 +54,4 @@ properties:
   description:
     type: string
   projects:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_one_project"
