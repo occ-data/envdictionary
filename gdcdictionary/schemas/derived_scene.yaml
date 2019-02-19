@@ -31,6 +31,7 @@ required:
   - submitter_id
   - type
 
+
 uniqueKeys:
   - [ id ]
   - [ project_id, submitter_id ]
