@@ -21,6 +21,8 @@ systemProperties:
   - intended_release_date
 
 required:
+  - type
+  - dbgap_accession_number
   - code 
   - name 
   - programs

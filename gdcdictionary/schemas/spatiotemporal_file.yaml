@@ -82,6 +82,7 @@ links:
         required: false
 
 required:
+  - type
   - submitter_id
   - file_name
   - file_size
@@ -161,6 +162,6 @@ properties:
   stream_gauges:
     $ref: "_definitions.yaml#/to_many"
   projects:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_one_project"
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"

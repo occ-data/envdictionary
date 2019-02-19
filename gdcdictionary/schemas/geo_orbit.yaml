@@ -21,6 +21,7 @@ systemProperties:
 
 
 required:
+  - type
   - satellites
   - submitter_id
   - longitude
